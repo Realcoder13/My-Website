@@ -181,11 +181,3 @@ export default function Contact() {
     </section>
   );
 }
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}

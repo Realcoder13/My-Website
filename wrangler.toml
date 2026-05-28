@@ -1,0 +1,17 @@
+name = "harmanjeet-portfolio"
+type = "javascript"
+account_id = ""  # Add your Cloudflare Account ID
+workers_dev = true
+main = "functions/[[path]].ts"
+site = { bucket = "./out" }
+
+# Routes configuration - adjust domain as needed
+routes = [
+  { pattern = "example.com", zone_name = "example.com" }  # Replace with your actual domain
+]
+
+# Build configuration
+build = { command = "npm run build", cwd = "." }
+
+# Environment settings
+env.production = {}

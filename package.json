@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export"
+    "export": "next build && next export",
+    "build:cloudflare": "npm run build && echo 'Ready for Cloudflare deployment'",
+    "test": "npm run build && npm run lint"
   },
   "keywords": [],
   "author": "",

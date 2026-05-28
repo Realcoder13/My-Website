@@ -1,17 +1,12 @@
-name = "harmanjeet-portfolio"
-type = "javascript"
-account_id = ""  # Add your Cloudflare Account ID
-workers_dev = true
-main = "functions/[[path]].ts"
-site = { bucket = "./out" }
+# Cloudflare Pages Configuration - FREE TIER ONLY
+# This is a static site - NO Workers (keeps you on free tier)
+# Do NOT add serverless functionality or paid add-ons
 
-# Routes configuration - adjust domain as needed
-routes = [
-  { pattern = "example.com", zone_name = "example.com" }  # Replace with your actual domain
-]
+name = "harmanjeet-portfolio"
+account_id = ""  # Add your Cloudflare Account ID
+
+# Pages deployment settings
+pages_build_output_dir = "./out"
 
 # Build configuration
 build = { command = "npm run build", cwd = "." }
-
-# Environment settings
-env.production = {}

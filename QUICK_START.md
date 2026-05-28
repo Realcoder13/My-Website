@@ -12,38 +12,39 @@ Your website has been tested and is production-ready!
 
 ## Deploy in 3 Steps 🚀
 
-### Step 1: Get Cloudflare Credentials
+### Step 1: Create Cloudflare Pages Project
 ```
 1. Go to https://dash.cloudflare.com
-2. Select your domain
-3. Go to Account Settings → Get Account ID (copy it)
-4. Go to My Profile → API Tokens → Create Token
-   - Use "Cloudflare Pages - Deploy" template
-   - Click "Use template"
-   - Create token and copy it
+2. Click "Workers & Pages" → "Pages"
+3. Click "Create Application" → "Connect to Git"
+4. Select your GitHub repo
+5. Project name: harmanjeet-portfolio
+6. Select your domain
 ```
 
-### Step 2: Add Secrets to GitHub
+### Step 2: Configure Build Settings
+After GitHub connection, configure these settings:
 ```
-1. Go to GitHub repo Settings → Secrets and variables → Actions
-2. Click "New repository secret"
-3. Create two secrets:
-   
-   Name: CLOUDFLARE_API_TOKEN
-   Value: [paste your API token]
-   
-   Name: CLOUDFLARE_ACCOUNT_ID
-   Value: [paste your Account ID]
+Build Command: npm run build
+Build Output Directory: out
+Node.js Version: 18 (or latest)
+Environment Variables: (leave empty)
+
+IMPORTANT: Do NOT set any Deploy Command
+IMPORTANT: Do NOT enable Workers
 ```
 
-### Step 3: Deploy
+### Step 3: Add GitHub Secrets
 ```
-1. Push any change to 'main' branch
-   OR
-2. Just wait for GitHub Actions to run automatically
+1. GitHub Repo → Settings → Secrets and variables → Actions
+2. Create CLOUDFLARE_API_TOKEN
+   - Get from: Cloudflare → My Profile → API Tokens
+   - Create token with "Cloudflare Pages - Deploy" template
+3. Create CLOUDFLARE_ACCOUNT_ID
+   - Get from: Cloudflare → My Profile → Account Settings
 ```
 
-That's it! Your site will be live in ~2-3 minutes.
+Done! Your site will deploy automatically on the next push to main.
 
 ## Verify Deployment
 

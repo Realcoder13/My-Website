@@ -217,8 +217,24 @@ With current setup:
 
 **Contact Cloudflare support** for pricing details before enabling any.
 
----
+## ⚠️ Common Error: "wrangler deploy" Failure
 
-**Configuration Last Verified**: May 27, 2026
-**Status**: ✅ FREE TIER SAFE
-**Next Review**: Monthly
+If you see this error:
+```
+✘ [ERROR] The expected output file at "functions/[[path]].ts" was not found
+The `main` property in your wrangler.toml file should point to the file...
+```
+
+**This means Cloudflare Pages is trying to use Wrangler (Workers)!**
+
+**Fix:**
+1. Go to Cloudflare Pages project → **Settings**
+2. Find **Build, Deployments and Environments**
+3. Check Build settings:
+   - Build command: `npm run build`
+   - Build output directory: `out`
+   - Deploy command: **LEAVE EMPTY** (this is the issue!)
+4. Save changes
+5. Redeploy from Pages dashboard
+
+**Why:** We removed wrangler.toml to avoid Workers costs. Pages should deploy static files only.
